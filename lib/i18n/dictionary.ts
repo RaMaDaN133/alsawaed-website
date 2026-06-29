@@ -139,7 +139,7 @@ export const dictionary: Record<Locale, Dictionary> = {
       langLabel: "EN",
     },
     hero: {
-      badge: "مكتب محاماة رائد في المملكة",
+      badge: "مكتب محاماة رائد في قطر",
       titleLead: "خبرة قانونية وحلول احترافية",
       titleHighlight: "لحماية حقوقكم",
       description:
