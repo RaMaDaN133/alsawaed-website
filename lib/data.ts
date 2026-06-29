@@ -2,8 +2,6 @@ import {
   Service,
   Feature,
   Stat,
-  TeamMember,
-  Testimonial,
   FAQItem,
 } from "./types";
 
@@ -173,102 +171,6 @@ export const stats: Stat[] = [
   { value: 900, suffix: "+", label: "عميل سعيد" },
   { value: 18, suffix: "+", label: "سنة خبرة" },
   { value: 98, suffix: "%", label: "نسبة النجاح" },
-];
-
-// الصور Placeholder قابلة للاستبدال بسهولة — استبدل رابط image لكل عضو فقط
-const avatar = (name: string) =>
-  `https://ui-avatars.com/api/?name=${encodeURIComponent(
-    name
-  )}&background=0F172A&color=C9A227&size=512&font-size=0.33&bold=true`;
-
-export const team: TeamMember[] = [
-  {
-    id: 1,
-    name: "أ. عبدالله السواعد",
-    role: "المؤسس والمحامي الأول",
-    bio: "خبرة تتجاوز 20 عامًا في الترافع أمام المحاكم العليا والقضايا التجارية الكبرى.",
-    image: avatar("عبدالله السواعد"),
-    socials: { linkedin: "#", twitter: "#", email: "abdullah@sawaaed-law.com" },
-  },
-  {
-    id: 2,
-    name: "أ. سارة المنصور",
-    role: "مستشارة قانونية – الأحوال الشخصية",
-    bio: "متخصصة في قضايا الأسرة والأحوال الشخصية بخبرة 12 عامًا في المجال.",
-    image: avatar("سارة المنصور"),
-    socials: { linkedin: "#", twitter: "#", email: "sara@sawaaed-law.com" },
-  },
-  {
-    id: 3,
-    name: "أ. خالد العتيبي",
-    role: "رئيس قسم التحكيم التجاري",
-    bio: "محكّم معتمد ومتخصص في النزاعات التجارية المحلية والدولية.",
-    image: avatar("خالد العتيبي"),
-    socials: { linkedin: "#", twitter: "#", email: "khaled@sawaaed-law.com" },
-  },
-  {
-    id: 4,
-    name: "أ. نورة القحطاني",
-    role: "محامية – القضايا التجارية",
-    bio: "خبيرة في تأسيس الشركات والعقود التجارية وحوكمة الشركات.",
-    image: avatar("نورة القحطاني"),
-    socials: { linkedin: "#", twitter: "#", email: "noura@sawaaed-law.com" },
-  },
-  {
-    id: 5,
-    name: "أ. فيصل الدوسري",
-    role: "محامٍ – القضايا الجنائية",
-    bio: "متخصص في الدفاع الجنائي ومتابعة قضايا الجرائم المعلوماتية.",
-    image: avatar("فيصل الدوسري"),
-    socials: { linkedin: "#", twitter: "#", email: "faisal@sawaaed-law.com" },
-  },
-  {
-    id: 6,
-    name: "أ. ريم الشمري",
-    role: "مستشارة قانونية – العقود",
-    bio: "متخصصة في صياغة ومراجعة العقود والاتفاقيات للأفراد والمنشآت.",
-    image: avatar("ريم الشمري"),
-    socials: { linkedin: "#", twitter: "#", email: "reem@sawaaed-law.com" },
-  },
-];
-
-export const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "محمد العنزي",
-    role: "رجل أعمال",
-    content:
-      "تعاملت مع مكتب السواعد في قضية تجارية معقدة، وكانت النتيجة مبهرة. احترافية عالية ومتابعة دقيقة من البداية حتى صدور الحكم لصالحي.",
-    rating: 5,
-    image: avatar("محمد العنزي"),
-  },
-  {
-    id: 2,
-    name: "هند الزهراني",
-    role: "صاحبة منشأة",
-    content:
-      "فريق قانوني محترم وملتزم. ساعدوني في تأسيس شركتي وصياغة العقود بدقة متناهية. أنصح بهم بقوة.",
-    rating: 5,
-    image: avatar("هند الزهراني"),
-  },
-  {
-    id: 3,
-    name: "سعد المطيري",
-    role: "عميل",
-    content:
-      "السرية والاحترافية هما ما يميز هذا المكتب. شعرت بالاطمئنان طوال فترة القضية، وكانت الاستشارات واضحة ومفيدة.",
-    rating: 5,
-    image: avatar("سعد المطيري"),
-  },
-  {
-    id: 4,
-    name: "لطيفة الحربي",
-    role: "موكلة",
-    content:
-      "خبرة حقيقية ومعاملة راقية. تابعوا قضيتي في الأحوال الشخصية بكل حرص واهتمام حتى حصلت على حقي كاملًا.",
-    rating: 5,
-    image: avatar("لطيفة الحربي"),
-  },
 ];
 
 export const faqs: FAQItem[] = [

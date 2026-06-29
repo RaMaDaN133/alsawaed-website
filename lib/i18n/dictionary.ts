@@ -57,12 +57,6 @@ export interface Dictionary {
     subtitle: string;
     members: { id: number; name: string; role: string; bio: string; image: string }[];
   };
-  testimonials: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    items: { id: number; name: string; role: string; content: string; rating: number; image: string }[];
-  };
   faq: {
     eyebrow: string;
     title: string;
@@ -209,24 +203,12 @@ export const dictionary: Record<Locale, Dictionary> = {
       subtitle:
         "فريق متكامل من المحامين والمستشارين المتخصصين يضع خبرته بين أيديكم.",
       members: [
-        { id: 1, name: "أ. عبدالله السواعد", role: "المؤسس والمحامي الأول", bio: "خبرة تتجاوز 20 عامًا في الترافع أمام المحاكم العليا والقضايا التجارية الكبرى.", image: avatar("عبدالله السواعد") },
-        { id: 2, name: "أ. سارة المنصور", role: "مستشارة قانونية – الأحوال الشخصية", bio: "متخصصة في قضايا الأسرة والأحوال الشخصية بخبرة 12 عامًا في المجال.", image: avatar("سارة المنصور") },
-        { id: 3, name: "أ. خالد العتيبي", role: "رئيس قسم التحكيم التجاري", bio: "محكّم معتمد ومتخصص في النزاعات التجارية المحلية والدولية.", image: avatar("خالد العتيبي") },
-        { id: 4, name: "أ. نورة القحطاني", role: "محامية – القضايا التجارية", bio: "خبيرة في تأسيس الشركات والعقود التجارية وحوكمة الشركات.", image: avatar("نورة القحطاني") },
-        { id: 5, name: "أ. فيصل الدوسري", role: "محامٍ – القضايا الجنائية", bio: "متخصص في الدفاع الجنائي ومتابعة قضايا الجرائم المعلوماتية.", image: avatar("فيصل الدوسري") },
-        { id: 6, name: "أ. ريم الشمري", role: "مستشارة قانونية – العقود", bio: "متخصصة في صياغة ومراجعة العقود والاتفاقيات للأفراد والمنشآت.", image: avatar("ريم الشمري") },
-      ],
-    },
-    testimonials: {
-      eyebrow: "آراء العملاء",
-      title: "ماذا يقول موكلونا",
-      subtitle:
-        "ثقة عملائنا هي أعظم إنجازاتنا، وهذه بعض من شهاداتهم عن تجربتهم معنا.",
-      items: [
-        { id: 1, name: "محمد العنزي", role: "رجل أعمال", content: "تعاملت مع مكتب السواعد في قضية تجارية معقدة، وكانت النتيجة مبهرة. احترافية عالية ومتابعة دقيقة من البداية حتى صدور الحكم لصالحي.", rating: 5, image: avatar("محمد العنزي") },
-        { id: 2, name: "هند الزهراني", role: "صاحبة منشأة", content: "فريق قانوني محترم وملتزم. ساعدوني في تأسيس شركتي وصياغة العقود بدقة متناهية. أنصح بهم بقوة.", rating: 5, image: avatar("هند الزهراني") },
-        { id: 3, name: "سعد المطيري", role: "عميل", content: "السرية والاحترافية هما ما يميز هذا المكتب. شعرت بالاطمئنان طوال فترة القضية، وكانت الاستشارات واضحة ومفيدة.", rating: 5, image: avatar("سعد المطيري") },
-        { id: 4, name: "لطيفة الحربي", role: "موكلة", content: "خبرة حقيقية ومعاملة راقية. تابعوا قضيتي في الأحوال الشخصية بكل حرص واهتمام حتى حصلت على حقي كاملًا.", rating: 5, image: avatar("لطيفة الحربي") },
+        { id: 1, name: "أ/ عبد القادر محمد الشيخ", role: "محامي تمييز - مؤسس المكتب", bio: "محامي تمييز ومؤسس المكتب، يقود الفريق بخبرة واسعة في الترافع أمام المحاكم.", image: avatar("عبد القادر الشيخ") },
+        { id: 2, name: "أ/ محمد رجب", role: "مدير المكتب - محامي", bio: "مدير المكتب ومحامٍ، يشرف على إدارة القضايا ومتابعة سير العمل.", image: avatar("محمد رجب") },
+        { id: 3, name: "أ/ محمود صلاح", role: "محامي", bio: "محامٍ بالمكتب، يتولى الترافع ومتابعة القضايا أمام مختلف الجهات.", image: avatar("محمود صلاح") },
+        { id: 4, name: "أ/ أواب عبد الله", role: "محامي", bio: "محامٍ بالمكتب، يتولى الترافع ومتابعة القضايا أمام مختلف الجهات.", image: avatar("أواب عبد الله") },
+        { id: 5, name: "أ/ محمد رمضان", role: "استشاري تكنولوجيا المعلومات", bio: "استشاري تكنولوجيا المعلومات، مسؤول عن الأنظمة والحلول التقنية بالمكتب.", image: avatar("محمد رمضان") },
+        { id: 6, name: "أ/ عمران", role: "عامل بوفيه", bio: "عضو فريق الدعم، مسؤول عن خدمات الضيافة وراحة العملاء بالمكتب.", image: avatar("عمران") },
       ],
     },
     faq: {
@@ -378,24 +360,12 @@ export const dictionary: Record<Locale, Dictionary> = {
       subtitle:
         "An integrated team of specialized lawyers and consultants placing their expertise at your service.",
       members: [
-        { id: 1, name: "Abdullah Al Sawaed", role: "Founder & Lead Attorney", bio: "Over 20 years of experience litigating before high courts and in major commercial cases.", image: avatar("Abdullah Al Sawaed") },
-        { id: 2, name: "Sara Al Mansour", role: "Legal Consultant – Family Law", bio: "Specialized in family and personal-status cases with 12 years of experience.", image: avatar("Sara Al Mansour") },
-        { id: 3, name: "Khaled Al Otaibi", role: "Head of Commercial Arbitration", bio: "Certified arbitrator specialized in local and international commercial disputes.", image: avatar("Khaled Al Otaibi") },
-        { id: 4, name: "Noura Al Qahtani", role: "Attorney – Commercial Cases", bio: "Expert in company formation, commercial contracts and corporate governance.", image: avatar("Noura Al Qahtani") },
-        { id: 5, name: "Faisal Al Dosari", role: "Attorney – Criminal Cases", bio: "Specialized in criminal defense and handling cybercrime cases.", image: avatar("Faisal Al Dosari") },
-        { id: 6, name: "Reem Al Shammari", role: "Legal Consultant – Contracts", bio: "Specialized in drafting and reviewing contracts and agreements for individuals and businesses.", image: avatar("Reem Al Shammari") },
-      ],
-    },
-    testimonials: {
-      eyebrow: "Testimonials",
-      title: "What our clients say",
-      subtitle:
-        "Our clients' trust is our greatest achievement. Here are some of their testimonials about working with us.",
-      items: [
-        { id: 1, name: "Mohammed Al Anzi", role: "Businessman", content: "I worked with Al Sawaed on a complex commercial case and the result was outstanding. High professionalism and meticulous follow-up from start until the verdict was issued in my favor.", rating: 5, image: avatar("Mohammed Al Anzi") },
-        { id: 2, name: "Hind Al Zahrani", role: "Business Owner", content: "A respectful and committed legal team. They helped me establish my company and draft contracts with great precision. I highly recommend them.", rating: 5, image: avatar("Hind Al Zahrani") },
-        { id: 3, name: "Saad Al Mutairi", role: "Client", content: "Confidentiality and professionalism are what set this firm apart. I felt reassured throughout the case, and the consultations were clear and helpful.", rating: 5, image: avatar("Saad Al Mutairi") },
-        { id: 4, name: "Latifa Al Harbi", role: "Client", content: "Genuine expertise and excellent treatment. They handled my family case with great care and attention until I obtained my full rights.", rating: 5, image: avatar("Latifa Al Harbi") },
+        { id: 1, name: "Abdulqader Mohammed Al Sheikh", role: "Cassation Lawyer – Founder", bio: "Cassation lawyer and founder of the firm, leading the team with extensive litigation experience before the courts.", image: avatar("Abdulqader Al Sheikh") },
+        { id: 2, name: "Mohammed Ragab", role: "Office Manager – Lawyer", bio: "Office manager and lawyer, overseeing case management and the firm's workflow.", image: avatar("Mohammed Ragab") },
+        { id: 3, name: "Mahmoud Salah", role: "Lawyer", bio: "Lawyer at the firm, handling litigation and case follow-up before various authorities.", image: avatar("Mahmoud Salah") },
+        { id: 4, name: "Awab Abdullah", role: "Lawyer", bio: "Lawyer at the firm, handling litigation and case follow-up before various authorities.", image: avatar("Awab Abdullah") },
+        { id: 5, name: "Mohammed Ramadan", role: "IT Consultant", bio: "Information technology consultant, responsible for the firm's systems and technical solutions.", image: avatar("Mohammed Ramadan") },
+        { id: 6, name: "Imran", role: "Office Attendant", bio: "Support team member, responsible for hospitality and client comfort at the office.", image: avatar("Imran") },
       ],
     },
     faq: {

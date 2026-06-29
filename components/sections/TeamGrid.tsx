@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import TeamCard from "@/components/ui/TeamCard";
-import { team } from "@/lib/data";
 import { stagger } from "@/lib/motion";
+import { useT } from "@/components/i18n/LanguageProvider";
 
 export default function TeamGrid() {
+  const team = useT().team.members;
   return (
     <section className="section-padding bg-white">
       <div className="container-section">
