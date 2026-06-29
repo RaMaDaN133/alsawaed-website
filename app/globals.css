@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #0f172a;
+    --gold: #c9a227;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* حجم الخط الأساسي — يكبر تدريجيًا على الشاشات الأكبر لقراءة أوضح */
+  html {
+    font-size: 16px;
+  }
+  @media (min-width: 1024px) {
+    html {
+      font-size: 17px;
+    }
+  }
+  @media (min-width: 1536px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  body {
+    @apply bg-white text-navy-900 font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-navy-900;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c9a227;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a87e20;
+  }
+}
+
+@layer components {
+  .container-section {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-20;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-base font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold/50;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold text-navy-900 hover:bg-gold-600 hover:-translate-y-0.5 hover:shadow-gold;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-gold text-gold hover:bg-gold hover:text-navy-900;
+  }
+
+  .btn-navy {
+    @apply btn bg-navy-900 text-white hover:bg-navy-700;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900;
+  }
+
+  .section-subtitle {
+    @apply mt-4 text-lg text-navy-500 max-w-2xl mx-auto leading-relaxed;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-gold font-semibold tracking-wide text-sm uppercase;
+  }
+
+  .gold-line {
+    @apply h-1 w-20 bg-gold-gradient rounded-full;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white p-7 shadow-card border border-navy-100/60 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
