@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { FaPaperPlane, FaCheckCircle } from "react-icons/fa";
+import { FaPaperPlane, FaCheckCircle, FaSpinner, FaExclamationCircle } from "react-icons/fa";
 import { useT } from "@/components/i18n/LanguageProvider";
 
 interface FormState {
@@ -29,6 +29,13 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<null | "generic" | "rate">(
+    null
+  );
+  // مكافحة السبام: قيمة فخ العسل + لحظة عرض النموذج.
+  const [company, setCompany] = useState("");
+  const renderedAt = useRef<number>(Date.now());
 
   const validate = (data: FormState): Errors => {
     const e: Errors = {};
@@ -62,17 +69,40 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validation = validate(form);
     if (Object.keys(validation).length > 0) {
       setErrors(validation);
       return;
     }
-    // Mock submission — اربط هنا واجهة API الحقيقية لإرسال الرسالة
-    setSubmitted(true);
-    setForm(initial);
-    setTimeout(() => setSubmitted(false), 6000);
+
+    setLoading(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          company, // honeypot
+          renderedAt: renderedAt.current,
+        }),
+      });
+
+      if (res.status === 429) {
+        setSubmitError("rate");
+        return;
+      }
+      if (!res.ok) throw new Error("request_failed");
+
+      setSubmitted(true);
+      setForm(initial);
+    } catch {
+      setSubmitError("generic");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fieldClass = (name: keyof FormState) =>
@@ -98,6 +128,34 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      {/* فخ العسل (honeypot) — مخفي عن المستخدمين، تملأه البوتات فقط */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          width: 1,
+          height: 1,
+          padding: 0,
+          margin: -1,
+          overflow: "hidden",
+          clip: "rect(0, 0, 0, 0)",
+          whiteSpace: "nowrap",
+          border: 0,
+        }}
+      >
+        <label>
+          Company
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+          />
+        </label>
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-2 block text-sm font-semibold text-navy-700">
@@ -189,9 +247,34 @@ export default function ContactForm() {
         )}
       </div>
 
-      <button type="submit" className="btn-gold w-full sm:w-auto">
-        {f.submit}
-        <FaPaperPlane className="text-sm" />
+      {submitError && (
+        <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          <FaExclamationCircle className="mt-0.5 shrink-0 text-red-500" />
+          <div>
+            <p className="font-bold">{f.errorTitle}</p>
+            <p className="mt-0.5">
+              {submitError === "rate" ? f.rateLimitText : f.errorText}
+            </p>
+          </div>
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="btn-gold w-full sm:w-auto disabled:cursor-not-allowed disabled:opacity-70"
+      >
+        {loading ? (
+          <>
+            {f.sending}
+            <FaSpinner className="animate-spin text-sm" />
+          </>
+        ) : (
+          <>
+            {f.submit}
+            <FaPaperPlane className="text-sm" />
+          </>
+        )}
       </button>
     </form>
   );

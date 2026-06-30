@@ -81,8 +81,12 @@ export interface Dictionary {
       subjectPlaceholder: string;
       messagePlaceholder: string;
       submit: string;
+      sending: string;
       successTitle: string;
       successText: string;
+      errorTitle: string;
+      errorText: string;
+      rateLimitText: string;
       errors: {
         nameRequired: string;
         nameShort: string;
@@ -248,8 +252,12 @@ export const dictionary: Record<Locale, Dictionary> = {
         subjectPlaceholder: "موضوع استفسارك",
         messagePlaceholder: "اكتب تفاصيل استفسارك هنا...",
         submit: "إرسال الرسالة",
+        sending: "جارٍ الإرسال...",
         successTitle: "تم إرسال رسالتك بنجاح!",
         successText: "شكرًا لتواصلك معنا، سيقوم فريقنا بالرد عليك في أقرب وقت ممكن.",
+        errorTitle: "تعذّر إرسال الرسالة",
+        errorText: "حدث خطأ أثناء الإرسال. الرجاء المحاولة مرة أخرى أو التواصل معنا هاتفيًا.",
+        rateLimitText: "لقد أرسلت عددًا كبيرًا من الرسائل. الرجاء المحاولة بعد قليل.",
         errors: {
           nameRequired: "الرجاء إدخال الاسم",
           nameShort: "الاسم قصير جدًا",
@@ -405,8 +413,12 @@ export const dictionary: Record<Locale, Dictionary> = {
         subjectPlaceholder: "Your inquiry subject",
         messagePlaceholder: "Write the details of your inquiry here...",
         submit: "Send Message",
+        sending: "Sending...",
         successTitle: "Your message has been sent!",
         successText: "Thank you for reaching out. Our team will get back to you as soon as possible.",
+        errorTitle: "Couldn't send your message",
+        errorText: "Something went wrong while sending. Please try again or contact us by phone.",
+        rateLimitText: "You've sent too many messages. Please try again in a little while.",
         errors: {
           nameRequired: "Please enter your name",
           nameShort: "Name is too short",

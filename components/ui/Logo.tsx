@@ -17,7 +17,7 @@ export default function Logo({ light = false }: { light?: boolean }) {
   }, []);
 
   return (
-    <Link href="/" className="flex items-center gap-3 group">
+    <Link href="/" className="flex min-w-0 items-center gap-3 group">
       {imgOk ? (
         <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-gold-gradient p-1.5 shadow-gold transition-transform group-hover:scale-105">
           {/* الشعار من public/logo.png — استبدل الملف لتغيير اللوجو */}
@@ -35,15 +35,15 @@ export default function Logo({ light = false }: { light?: boolean }) {
           <FaBalanceScale className="text-xl" />
         </span>
       )}
-      <span className="flex flex-col leading-tight">
+      <span className="flex min-w-0 flex-col leading-tight">
         <span
-          className={`font-heading text-lg font-extrabold ${
+          className={`font-heading text-lg font-extrabold truncate ${
             light ? "text-white" : "text-navy-900"
           }`}
         >
           {t.brand.name}
         </span>
-        <span className="text-[11px] font-medium text-gold tracking-wide">
+        <span className="truncate text-[11px] font-medium text-gold tracking-wide">
           {t.brand.tagline}
         </span>
       </span>

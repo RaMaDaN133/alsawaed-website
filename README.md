@@ -92,10 +92,21 @@ lib/
 في `components/sections/MapPlaceholder.tsx` استبدل رابط `iframe` بكود التضمين
 الخاص بموقعك من خرائط Google.
 
-### نموذج التواصل
-نموذج التواصل يحتوي على تحقق كامل من البيانات. الإرسال حاليًا تجريبي (Mock).
-اربط الإرسال بواجهة API الحقيقية في `components/forms/ContactForm.tsx`
-داخل دالة `handleSubmit`.
+### نموذج التواصل (Resend)
+نموذج التواصل يرسل إيميلًا فعليًا عبر **Resend** (بدون قاعدة بيانات) من خلال
+Route Handler في `app/api/contact/route.ts`، مع تحقق من البيانات على الخادم
+ورسائل نجاح/خطأ للمستخدم.
+
+**الإعداد:**
+1. انسخ `.env.local.example` إلى `.env.local`.
+2. املأ المتغيرات:
+   - `RESEND_API_KEY` — من [resend.com/api-keys](https://resend.com/api-keys)
+   - `CONTACT_EMAIL` — البريد الذي تصل إليه الرسائل
+   - `CONTACT_FROM` (اختياري) — عنوان مُرسِل من نطاق موثّق في Resend (وإلا يُستخدم نطاق الاختبار)
+3. أعد تشغيل الخادم.
+
+> ملف `.env.local` مُتجاهَل في Git؛ لا تضع المفاتيح في الكود.
+> في وضع الاختبار، Resend يسلّم فقط إلى بريد صاحب الحساب — للإنتاج وثّق نطاقك واضبط `CONTACT_FROM`.
 
 ## ✅ المميزات
 
